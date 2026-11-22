@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&display=swap");
+
+/* ---------- Colors & fonts (change theme here) ---------- */
+:root {
+  --bg: #1a1223;
+  --surface: #251a31;
+  --text: #efe6d8;
+  --muted: #b3a8bf;
+  --brass: #d4a95a;
+  --line: rgba(212, 169, 90, 0.28);
+  --display: "Gloock", Georgia, serif;
+  --body: "Hanken Grotesk", "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body);
+  font-size: 1.05rem;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--brass);
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  min-height: 70vh;
+}
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 20px; }
+h2 { font-size: 1.6rem; margin: 40px 0 12px; }
+
+p {
+  color: var(--muted);
+  max-width: 62ch;
+  margin-bottom: 14px;
+}
+
+/* ---------- Navbar ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--brass);
+  border-bottom-color: var(--brass);
+}
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-block;
+  background: var(--brass);
+  color: var(--bg);
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 26px;
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--brass);
+}
+
+/* ---------- Home ---------- */
+.hero {
+  padding: 90px 0 60px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  line-height: 1.02;
+  max-width: none;
+  margin-bottom: 28px;
+  animation: rise 0.9s ease-out both;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text);
+  max-width: 44ch;
+  margin-bottom: 36px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- About ---------- */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.skills li {
+  padding: 6px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* ---------- Projects (rows, not boxes) ---------- */
+.project-grid {
+  margin-top: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 48px;
+  padding: 36px 0;
+  border-top: 1px solid var(--line);
+}
+
+.card h2 {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.card > *:not(h2) {
+  grid-column: 2;
+}
+
+.card .btn {
+  justify-self: start;
+  margin-top: 8px;
+}
+
+.tech {
+  color: var(--brass);
+  font-size: 0.95rem;
+}
+
+/* ---------- Contact ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 520px;
+  margin: 28px 0;
+}
+
+label {
+  margin-top: 8px;
+}
+
+input, textarea {
+  padding: 12px 14px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--body);
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--brass);
+  outline: none;
+}
+
+form .btn {
+  align-self: flex-start;
+  margin-top: 16px;
+}
+
+.social-links {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 28px max(24px, calc((100% - 1000px) / 2));
+  border-top: 1px solid var(--line);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- Small screens (basic, Day 4 la improve pannuvom) ---------- */
+@media (max-width: 700px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+  .card h2,
+  .card > *:not(h2) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .card h2 {
+    margin-bottom: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 { animation: none; }
+}
