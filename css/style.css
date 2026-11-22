@@ -265,3 +265,104 @@ footer p {
 @media (prefers-reduced-motion: reduce) {
   .hero h1 { animation: none; }
 }
+/* ---------- Home extras ---------- */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  color: var(--brass);
+  border-color: var(--brass);
+}
+
+.focus {
+  margin-top: 40px;
+}
+
+.focus-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.focus-list li {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.focus-list strong {
+  display: block;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+@media (max-width: 700px) {
+  .focus-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* ---------- Mobile menu ---------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 1.4rem;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 8px 24px 16px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: none;
+  }
+
+  main {
+    padding: 40px 20px;
+  }
+
+  .hero {
+    padding: 48px 0 32px;
+  }
+}
