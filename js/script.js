@@ -7,3 +7,9 @@ if (toggle && links) {
     toggle.setAttribute("aria-expanded", isOpen);
   });
 }
+const emailLink = document.querySelector(".email-link");
+
+if (emailLink && /Android|iPhone|iPad/i.test(navigator.userAgent)) {
+  emailLink.href = "mailto:mohanaprasath1735@gmail.com";
+  emailLink.removeAttribute("target");
+}
